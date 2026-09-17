@@ -1,0 +1,39 @@
+# ===================================================================
+# WasteGuard: Intelligent Hospital Waste Management System
+# Comprehensive Python Package Dependencies (SIH 2026 Production)
+# ===================================================================
+
+# --- Django Core & Web Framework ---
+Django>=5.0.0,<6.0.0
+djangorestframework>=3.14.0
+django-cors-headers>=4.3.0
+django-filter>=23.5
+python-dotenv>=1.0.0
+whitenoise>=6.6.0
+gunicorn>=21.2.0
+
+# --- Database Drivers ---
+psycopg2-binary>=2.9.9
+
+# --- IoT & ESP32 Telemetry Communication ---
+paho-mqtt>=1.6.1
+requests>=2.31.0
+urllib3>=2.0.0
+
+# --- AI Vision & Image Processing ---
+pillow>=10.0.0
+numpy>=1.26.0
+
+# --- Real-Time Telemetry & Background Tasks ---
+channels>=4.0.0
+channels-redis>=4.1.0
+celery>=5.3.6
+redis>=5.0.1
+
+# --- Hospital Analytics & Report Export ---
+pandas>=2.1.0
+openpyxl>=3.1.2
+
+# --- Security & JWT Auth ---
+PyJWT>=2.8.0
+cryptography>=41.0.0

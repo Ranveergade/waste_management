@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WasteGuard | Hospital Waste Handling & Worker Safety</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .landing-body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 24px;
+    }
+    .landing-card {
+      max-width: 620px;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    .landing-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #0284c7;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 22px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .landing-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .landing-subtitle {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .role-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 12px;
+      background: #f8fafc;
+      font-size: 12px;
+    }
+    .role-card strong {
+      display: block;
+      color: #0f172a;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body class="landing-body">
+  <div class="landing-card">
+    <div class="landing-logo">WG</div>
+    <h1 class="landing-title">Intelligent Waste Handling.<br>Safer Hospital Operations.</h1>
+    <p class="landing-subtitle">
+      Monitor waste conditions, identify handling risks, prioritize collection, and reduce unnecessary manual exposure for biomedical workers.
+    </p>
+
+    <div style="text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; color:#64748b; margin-bottom:10px; letter-spacing:0.05em;">
+      HOSPITAL OPERATIONS PLATFORM ROLES
+    </div>
+    <div class="role-grid">
+      <div class="role-card">
+        <strong>ADMINISTRATOR</strong>
+        System thresholds, user permissions, audit logs.
+      </div>
+      <div class="role-card">
+        <strong>SUPERVISOR</strong>
+        Ward monitoring, collection approvals, worker safety.
+      </div>
+      <div class="role-card">
+        <strong>OPERATOR</strong>
+        Container inspection, isolation confirmation, collection.
+      </div>
+      <div class="role-card">
+        <strong>SAFETY OFFICER</strong>
+        High-risk events, specialist handling, incident reports.
+      </div>
+    </div>
+
+    <a href="login.html" class="btn btn-primary btn-lg" style="width:100%;">
+      Access Hospital Operations Portal →
+    </a>
+  </div>
+
+  <div style="margin-top:20px; font-size:12px; color:#64748b;">
+    SIH 2026 Prototype • WasteGuard Intelligent Biomedical Safety System
+  </div>
+</body>
+</html>

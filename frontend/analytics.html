@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safety Analytics | WasteGuard</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 850px) {
+      .analytics-grid { grid-template-columns: 1fr; }
+    }
+    .comparison-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">WG</div>
+        <div>
+          <div class="sidebar-brand-text">WasteGuard</div>
+          <div class="sidebar-brand-sub">Hospital Operations</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item"><span class="nav-icon">📊</span> Dashboard</a>
+        <a href="bins.html" class="nav-item"><span class="nav-icon">🗑️</span> Waste Containers</a>
+        <a href="actions.html" class="nav-item"><span class="nav-icon">⚡</span> Action Queue</a>
+        <a href="alerts.html" class="nav-item"><span class="nav-icon">🔔</span> Alerts Matrix</a>
+        <a href="collection.html" class="nav-item"><span class="nav-icon">🚛</span> Collection Management</a>
+        <a href="analytics.html" class="nav-item active"><span class="nav-icon">📈</span> Safety Analytics</a>
+        <div class="nav-section-title">ADMINISTRATION</div>
+        <a href="settings.html" class="nav-item" data-role-min="SUPERVISOR"><span class="nav-icon">⚙️</span> System Settings</a>
+      </nav>
+    </aside>
+
+    <div class="main-wrapper">
+      <header class="top-header">
+        <div class="header-title-group">
+          <h1>Hospital Waste &amp; Worker Exposure Analytics</h1>
+          <p>Operational Efficiency, Pathogen Exposure Reduction &amp; Volume Metrics</p>
+        </div>
+        <div class="header-user-profile">
+          <div class="user-info-text">
+            <div class="user-name" id="nav-user-name">Loading...</div>
+            <div class="user-role" id="nav-user-role">OPERATOR</div>
+          </div>
+          <div class="user-avatar" id="nav-user-avatar">U</div>
+          <button class="btn btn-secondary btn-sm" onclick="AuthManager.logout()">Sign Out</button>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <!-- Key Efficiency Metric: BEFORE vs AFTER Manual Exposure Comparison -->
+        <div class="card" style="margin-bottom:24px;">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Manual Handling Exposure Reduction</h2>
+              <p class="card-subtitle">Impact Analysis: Manual Physical Inspection vs. WasteGuard Telemetry Platform</p>
+            </div>
+            <span class="badge badge-medium">LIVE DEMO MONITORING</span>
+          </div>
+          
+          <div class="analytics-grid" style="margin-top:12px;">
+            <div class="comparison-card" style="border-left:4px solid var(--status-critical); background:#fff5f5;">
+              <div style="font-size:12px; font-weight:800; color:var(--status-critical); text-transform:uppercase; margin-bottom:8px;">
+                BEFORE WASTEGUARD (TRADITIONAL MANUAL ROUTINE)
+              </div>
+              <div id="metric-before-inspections">
+                <div class="text-muted">Loading baseline metrics...</div>
+              </div>
+            </div>
+
+            <div class="comparison-card" style="border-left:4px solid var(--status-low); background:#f0fdf4;">
+              <div style="font-size:12px; font-weight:800; color:var(--status-low); text-transform:uppercase; margin-bottom:8px;">
+                AFTER WASTEGUARD (INTELLIGENT TELEMETRY PLATFORM)
+              </div>
+              <div id="metric-after-inspections">
+                <div class="text-muted">Loading optimization metrics...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Waste Metrics Grid: By Ward & By Category -->
+        <div class="analytics-grid">
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom:12px;">Waste Generation Volume by Ward</h3>
+            <div class="table-responsive">
+              <table class="clinical-table">
+                <thead>
+                  <tr>
+                    <th>Hospital Ward</th>
+                    <th>Total Weight</th>
+                    <th>Waste Points</th>
+                  </tr>
+                </thead>
+                <tbody id="analytics-ward-table-body">
+                  <tr><td colspan="3" style="text-align:center; padding:16px;">Loading ward data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom:12px;">Biomedical Waste Category Breakdown</h3>
+            <div class="table-responsive">
+              <table class="clinical-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Distribution</th>
+                    <th>Total Weight</th>
+                  </tr>
+                </thead>
+                <tbody id="analytics-category-table-body">
+                  <tr><td colspan="3" style="text-align:center; padding:16px;">Loading category data...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/analytics.js"></script>
+</body>
+</html>

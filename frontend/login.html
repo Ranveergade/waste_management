@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | WasteGuard Hospital Operations</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-main);
+      padding: 20px;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .demo-role-pills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-medium);
+    }
+    .role-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .role-pill:hover {
+      background: var(--accent-teal-light);
+      border-color: var(--accent-teal);
+    }
+  </style>
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <div style="width:32px; height:32px; background:var(--accent-teal); color:#fff; font-weight:800; border-radius:4px; display:flex; align-items:center; justify-content:center;">WG</div>
+        <div>
+          <h2 style="font-size:18px; font-weight:700;">WasteGuard</h2>
+          <p style="font-size:11px; color:var(--text-secondary);">Hospital Waste Safety & Operations Portal</p>
+        </div>
+      </div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="username">Employee ID / Username</label>
+          <input type="text" id="username" class="form-control" placeholder="e.g. EMP-003 or raj_sharma" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group" style="display:flex; align-items:center; gap:8px;">
+          <input type="checkbox" id="remember" checked>
+          <label for="remember" style="font-size:12px; color:var(--text-secondary); cursor:pointer;">Remember active hospital session</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:10px; font-size:14px;">
+          Authenticate & Sign In
+        </button>
+      </form>
+
+      <div class="demo-role-pills">
+        <div class="role-pill" onclick="quickFill('admin')">
+          <strong>ADMIN</strong><br>Dr. Alok Verma
+        </div>
+        <div class="role-pill" onclick="quickFill('supervisor')">
+          <strong>SUPERVISOR</strong><br>Sunita Rao
+        </div>
+        <div class="role-pill" onclick="quickFill('raj_sharma')">
+          <strong>OPERATOR</strong><br>Raj Sharma
+        </div>
+        <div class="role-pill" onclick="quickFill('safety_officer')">
+          <strong>SAFETY OFFICER</strong><br>Priya Mehta
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    function quickFill(user) {
+      document.getElementById('username').value = user;
+      document.getElementById('password').value = 'password123';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+      try {
+        await AuthManager.login(u, p);
+      } catch (err) {
+        // Handled by api.js toast
+      }
+    });
+  </script>
+</body>
+</html>
